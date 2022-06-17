@@ -1,5 +1,5 @@
 from telegram import Update
-from telegram.ext import CallbackContext
+from telegram.ext import CallbackContext, ConversationHandler
 
 from tgbot.onboarding.keyboards import choose_itin_types_keyboard
 from tgbot.onboarding.static_text import hy_this_is_phystech_centre_bot_description
@@ -11,3 +11,5 @@ def command_start(update: Update, context: CallbackContext) -> None:
     markup = choose_itin_types_keyboard(update)
 
     update.message.reply_text(text=text, reply_markup=markup)
+
+    return ConversationHandler.END
