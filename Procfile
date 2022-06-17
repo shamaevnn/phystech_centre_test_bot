@@ -1,2 +1,2 @@
-release_bot: python run_polling.py
-web: gunicorn main:app --port $PORT
+release: python run_polling.py
+web: uvicorn app.main:app --host 0.0.0.0 --port $PORT
